@@ -20,7 +20,7 @@ const shoppingCart = ['bananas', 'milk'];
 
 // ! Function to be tested
 function addToShoppingCart(item) {
-  if (typeof item=== 'string'&&item.trim()!='') {
+  if (item) {
     shoppingCart.push(item);
   }
   if (shoppingCart.length > 3) {
