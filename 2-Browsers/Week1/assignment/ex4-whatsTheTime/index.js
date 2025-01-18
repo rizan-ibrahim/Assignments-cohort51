@@ -32,5 +32,5 @@ function addCurrentTime() {
 }
 window.addEventListener('load', () => {
   addCurrentTime();
-  setInterval(addCurrentTime, 100);
+  setInterval(addCurrentTime, 1000);
 });
