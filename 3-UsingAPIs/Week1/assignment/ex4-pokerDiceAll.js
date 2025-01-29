@@ -27,9 +27,11 @@ exercise file.
 import { rollDie } from '../../helpers/pokerDiceRoller.js';
 
 export function rollDice() {
-  // TODO Refactor this function
+  
   const dice = [1, 2, 3, 4, 5];
-  return rollDie(1);
+  const promises = dice.map(rollDie);
+  return Promise.all(promises);
+  
 }
 
 function main() {
@@ -43,4 +45,7 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 
-// TODO Replace this comment by your explanation that was asked for in the assignment description.
+/*
+Explanation:
+When using `Promise.all`, if one of the promises is rejected, the entire `Promise.all` is rejected immediately with that reason. However, the other promises that have not yet finished their roll will continue to execute. This is because `Promise.all` does not cancel the remaining promises; it simply stops waiting for them once one promise is rejected.
+*/
