@@ -40,18 +40,12 @@ export function rollDie() {
     // Start the initial roll
     rollOnce(1);
   });
-};
-
-  
+}
 
 function main() {
-  // TODO Refactor to use promise
-  rollDie() 
+  rollDie()
     .then((value) => console.log(`success! Die value is: ${value}`))
-    .catch((error) => console.log( error.message ))
-
-  
-  
+    .catch((error) => console.log(error.message));
 }
 
 // ! Do not change or remove the code below
@@ -59,4 +53,7 @@ if (process.env.NODE_ENV !== 'test') {
   main();
 }
 
-// TODO Replace this comment by your explanation that was asked for in the assignment description.
+/*
+Explanation:
+The `rollDie` function simulates rolling a die until it lands on a value of 6. It uses a recursive function `rollOnce` to keep rolling the die. The function returns a promise that resolves when the die lands on 6 and rejects if an error occurs. The `rollOnce` function logs each attempt and rolls the die again after a 1-second delay if the value is not 6.
+*/

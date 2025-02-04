@@ -21,15 +21,11 @@ export const getAnonName = (firstName) => {
       resolve(fullName);
     }, 1000);
   });
- 
 };
 
 function main() {
-  getAnonName('John')
-  .then(console.log)
-  .catch(console.log);
+  getAnonName('John').then(console.log).catch(console.log);
 }
-
 
 // ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
