@@ -1,1 +1,70 @@
-/* add your styling here */
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f4f8;
+  color: #333;
+  text-align: center;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Style the Pokémon image */
+img {
+  margin-top: 20px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+}
+
+/* Style the fallback error message */
+p {
+  margin-top: 20px;
+  color: #d9534f;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+/* Style for select box container */
+select,
+img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:hover,
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
