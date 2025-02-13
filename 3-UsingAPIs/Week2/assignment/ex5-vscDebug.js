@@ -10,16 +10,17 @@ async function getData(url) {
 
 function renderLaureate({ knownName, birth, death }) {
   console.log(`\nName: ${knownName.en}`);
+
   if (birth) {
     console.log(
-      `Birth: ${birth?.date || 'Unknown'}, ${birth?.place?.locationString || 'Unknown'}`
+      `Birth: ${birth?.date || 'Unknown'}, ${typeof birth?.place?.locationString || 'Unknown'}`
     );
   } else {
     console.log(`Birth: Unknown`);
   }
   if (death) {
     console.log(
-      `Death: ${death?.date || 'Unknown'}, ${death?.place?.locationString || 'Unknown'}`
+      `Death: ${death?.date || 'Unknown'}, ${typeof death?.place?.locationString || 'Unknown'}`
     );
   } else {
     console.log(`Death: still alive`);

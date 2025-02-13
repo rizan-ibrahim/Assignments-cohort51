@@ -21,14 +21,14 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
- async function fetchData(url) {
-try {
+async function fetchData(url) {
+  try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     return await response.json();
-  } catch (error) { 
+  } catch (error) {
     console.error('Error fetch data:', error);
     throw error;
   }
@@ -39,6 +39,8 @@ async function fetchAndPopulatePokemons() {
   try {
     const data = await fetchData(url);
     const select = document.querySelector('select');
+    select.innerHTML = '';
+
     data.results.forEach((pokemon) => {
       const option = document.createElement('option');
       option.value = pokemon.url;
@@ -55,36 +57,39 @@ async function fetchImage(pokemonUrl) {
     const data = await fetchData(pokemonUrl);
     const img = document.querySelector('img');
     img.src = data.sprites.front_default;
+    img.alt = `${data.name} Pokemon sprite`;
   } catch (error) {
     console.error('Error fetch image:', error);
   }
-
-};
-
-function main() {
-const select = document.createElement('select');
-select.id = 'pokemon-select';
-document.body.appendChild(select);
-
-const option = document.createElement('option');
-option.value = '';
-option.textContent = 'Select a Pokemon';
-select.appendChild(option);
-
-
-const img = document.createElement('img');
-img.id = 'pokemon-img';
-img.alt = 'Pokemon Image';
-document.body.appendChild(img);
-
-
-fetchAndPopulatePokemons();
-select.addEventListener('change', (event) => {
-  fetchImage(event.target.value);
-});
-
 }
 
+function main() {
+  const button = document.createElement('button');
+  button.id = 'get-button';
+  button.textContent = 'get pokemon';
+  document.body.appendChild(button);
+
+  const select = document.createElement('select');
+  select.id = 'pokemon-select';
+  document.body.appendChild(select);
+
+  const option = document.createElement('option');
+  option.value = '';
+  option.textContent = 'Select a Pokemon';
+  select.appendChild(option);
+
+  const img = document.createElement('img');
+  img.id = 'pokemon-img';
+  img.alt = `select a pokemon to see it image `;
+  document.body.appendChild(img);
+
+  button.addEventListener('click', fetchAndPopulatePokemons);
+
+  select.addEventListener('change', (event) => {
+    if (event.target.value) {
+      fetchImage(event.target.value);
+    }
+  });
+}
 
 window.addEventListener('load', main);
-

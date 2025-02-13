@@ -16,34 +16,33 @@ Full description at: https://github.com/HackYourFuture/Assignments/blob/main/3-U
    url with `.shx`. There is no server at the modified url, therefore this 
    should result in a network (DNS) error.
 ------------------------------------------------------------------------------*/
-function requestData(url) {
-return fetch(url) 
-.then((response) => {
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  return response.json();
+async function requestData(url) {
+  try {
+    const response = await fetch(url);
 
- })
- .catch((error) => {
-  throw new Error(`Network error! ${error.message}`);
- });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    throw new Error(`Network error! ${error.message}`);
+  }
 }
 
-
 function renderImage(data) {
-const img = document.createElement('img');
-img.src = data.img;
-img.alt = data.title;
-document.body.appendChild(img);
+  const img = document.createElement('img');
+  img.src = data.img;
+  img.alt = data.title;
+  document.body.appendChild(img);
 
   console.log(data);
 }
 
 function renderError(error) {
-const h1 = document.createElement('h1');
-h1.textContent = `error: ${error.message}`;
-document.body.appendChild(h1);
+  const h1 = document.createElement('h1');
+  h1.textContent = `error: ${error.message}`;
+  document.body.appendChild(h1);
 
   console.log(error);
 }
@@ -51,12 +50,11 @@ document.body.appendChild(h1);
 async function main() {
   try {
     const data = await requestData('https://xkcd.now.sh/?comic=latest');
-   
-      renderImage(data);
-    }
-    catch (error) {
-      renderError(error);
-    }
+
+    renderImage(data);
+  } catch (error) {
+    renderError(error);
+  }
 }
 
 window.addEventListener('load', main);

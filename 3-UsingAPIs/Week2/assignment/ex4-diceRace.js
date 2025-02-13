@@ -37,6 +37,4 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 /*
-When you use Promise.race(), it’s like starting a bunch of races at once and declaring a winner as soon as the first one finishes—whether it succeeds or fails. But here’s the catch: even after that first result comes in, the other promises you passed to race() don’t just disappear. They keep chugging away in the background because JavaScript doesn’t have a built-in way to halt promises once they’ve started. Imagine rolling five virtual dice with Promise.race()—the moment the first die lands, you get your result, but the other four? They’re still spinning, and there’s no way to magically freeze them mid-air.
-
-If you really need to stop those leftover promises (like saving resources or avoiding unnecessary work), things get trickier. You’d have to roll up your sleeves and use tools like AbortController to manually signal cancellation, or come up with your own cleanup logic. It’s doable, but it’s definitely not as simple as just calling Promise.race() and calling it a day.*/
+When you use Promise.race(), it starts all the promises at once and gives you the result of the first one that done, regardless of whether it resolved  or rejected, However the other promises don’t stop—they keep running in the background. If you need to cancel those extra promises, you'd have to use something like AbortController or add your own logic. It’s not as simple as just calling Promise.race()*/
