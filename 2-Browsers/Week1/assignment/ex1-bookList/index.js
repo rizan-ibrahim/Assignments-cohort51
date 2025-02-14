@@ -27,8 +27,15 @@ function createBookList(books) {
     const li = document.createElement('li');
     const infoBook = document.createElement('p');
     infoBook.textContent = `${book.title} by ${book.author}`;
+
     const imgBook = document.createElement('img');
-    imgBook.src = `https://via.placeholder.com/100x150?text=${encodeURIComponent(book.title)}`;
+
+    imgBook.src = `./images/${book.isbn}.jpg`;
+
+    console.log(`Image path: images/${book.isbn}.jpg`);
+
+    imgBook.alt = `Cover of ${book.title}`;
+
     if (book.alreadyRead) {
       li.style.color = 'green';
     } else {

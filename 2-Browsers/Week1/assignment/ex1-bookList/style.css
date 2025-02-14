@@ -1,1 +1,62 @@
-/* Write your style here */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#bookList {
+  width: 80%;
+  max-width: 900px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: #e3e3e3;
+}
+
+p {
+  flex: 1;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+img {
+  width: 50px;
+  height: 75px;
+  margin-left: 15px;
+  border-radius: 4px;
+}
+
+li[style*='color: green'] {
+  border-left: 5px solid green;
+}
+
+li[style*='color: red'] {
+  border-left: 5px solid red;
+}

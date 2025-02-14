@@ -4,11 +4,6 @@
 
 ### 2-Browsers - Week1
 
-|     Exercise     | Passed | Failed | ESLint |
-|------------------|--------|--------|--------|
-| ex1-bookList     |   5    |   1    |   ✕    |
-| ex2-aboutMe      |   4    |   -    |   ✕    |
-| ex3-hijackLogo   |   3    |   -    |   ✕    |
-| ex4-whatsTheTime |   6    |   -    |   ✕    |
-| ex5-catWalk      |   5    |   -    |   ✕    |
-| ex6-gameOfLife   |   5    |   6    |   ✕    |
+|   Exercise   | Passed | Failed | ESLint |
+|--------------|--------|--------|--------|
+| ex1-bookList |   6    |   -    |   ✕    |
